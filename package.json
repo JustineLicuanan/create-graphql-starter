@@ -1,0 +1,36 @@
+{
+	"name": "create-graphql-starter",
+	"version": "1.0.0",
+	"description": "a GraphQL starter kit that generates GraphQL TypeScript server boilerplate",
+	"main": "src/index",
+	"scripts": {
+		"start": "node src/index"
+	},
+	"keywords": [
+		"graphql",
+		"typescript",
+		"starter-kit"
+	],
+	"author": "Justine Licuanan",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/JustineLicuanan/create-graphql-starter.git"
+	},
+	"bugs": {
+		"url": "https://github.com/JustineLicuanan/create-graphql-starter/issues"
+	},
+	"homepage": "https://github.com/JustineLicuanan/create-graphql-starter#readme",
+	"files": [
+		"public/auth-starter",
+		"src/index.js"
+	],
+	"bin": {
+		"create-graphql-starter": "./src/index.js"
+	},
+	"dependencies": {
+		"chalk": "^4.1.0",
+		"commander": "^7.0.0",
+		"fs-extra": "^9.1.0"
+	}
+}
