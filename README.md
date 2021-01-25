@@ -1,5 +1,9 @@
 # Create GraphQL Starter
 
+Set up a new GraphQL TypeScript server by running one command
+
+## Usage
+
 ```bash
 # Run this command
 yarn create graphql-starter my-app
