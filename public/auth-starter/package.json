@@ -30,6 +30,8 @@
 		"uuid": "^8.3.2"
 	},
 	"scripts": {
+		"up": "npx -p npm-check-updates ncu -u",
+		"up:add": "yarn up && yarn",
 		"dev": "nodemon src/index.ts",
 		"dev:build": "yarn rm:dist && tsc -w",
 		"dev:start": "nodemon dist/index",
