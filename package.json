@@ -1,6 +1,6 @@
 {
 	"name": "create-graphql-starter",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "a GraphQL starter kit that generates GraphQL TypeScript server boilerplate",
 	"main": "src/index",
 	"scripts": {
