@@ -23,7 +23,7 @@ if (appDir === undefined) {
   program.help();
 }
 
-export const options = program.opts();
+const options = program.opts();
 copySync(
   join(
     __dirname,

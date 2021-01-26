@@ -1,4 +1,4 @@
-# GraphQL with Auth Starter
+# GraphQL Starter
 
 Steps to run this project:
 

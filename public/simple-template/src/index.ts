@@ -19,11 +19,6 @@ import { HiResolver } from './resolvers/HiResolver';
 			validate: true,
 		}),
 		context: ({ req, res }) => ({ req, res }),
-		playground: {
-			settings: {
-				'request.credentials': 'include',
-			},
-		},
 	});
 
 	apolloServer.applyMiddleware({ app, cors: false });
