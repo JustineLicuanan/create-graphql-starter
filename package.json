@@ -1,38 +1,82 @@
 {
-	"name": "create-graphql-starter",
-	"version": "1.0.5",
-	"description": "Set up a new GraphQL TypeScript server by running one command",
-	"main": "src/index",
-	"scripts": {
-		"start": "node src/index"
-	},
-	"keywords": [
-		"cli",
-		"graphql",
-		"typescript",
-		"starter-kit"
-	],
-	"author": "Justine Licuanan",
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/JustineLicuanan/create-graphql-starter.git"
-	},
-	"bugs": {
-		"url": "https://github.com/JustineLicuanan/create-graphql-starter/issues"
-	},
-	"homepage": "https://github.com/JustineLicuanan/create-graphql-starter#readme",
-	"files": [
-		"public/auth-starter",
-		"src/index.js"
-	],
-	"bin": {
-		"create-graphql-starter": "./src/index.js",
-		"cregs": "./src/index.js"
-	},
-	"dependencies": {
-		"chalk": "^4.1.0",
-		"commander": "^7.0.0",
-		"fs-extra": "^9.1.0"
-	}
+  "version": "1.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "cli": "node dist/index",
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "create-graphql-starter",
+  "description": "Set up a modern GraphQL TypeScript server by running one command",
+  "author": "Justine Licuanan",
+  "keywords": [
+    "cli",
+    "graphql",
+    "typescript",
+    "starter-kit"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JustineLicuanan/create-graphql-starter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JustineLicuanan/create-graphql-starter/issues"
+  },
+  "homepage": "https://github.com/JustineLicuanan/create-graphql-starter#readme",
+  "bin": {
+    "create-graphql-starter": "./dist/index.js",
+    "cregs": "./dist/index.js"
+  },
+  "module": "dist/create-graphql-starter.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/create-graphql-starter.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/create-graphql-starter.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.9.1",
+    "@types/fs-extra": "^9.0.6",
+    "@types/node": "^14.14.22",
+    "husky": "^4.3.8",
+    "size-limit": "^4.9.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.1.0",
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^7.0.0",
+    "fs-extra": "^9.1.0"
+  }
 }
