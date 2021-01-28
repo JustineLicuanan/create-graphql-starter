@@ -1,4 +1,11 @@
-import { Arg, Ctx, Mutation, Query, Resolver } from 'type-graphql';
+import {
+	Arg,
+	ArgumentValidationError,
+	Ctx,
+	Mutation,
+	Query,
+	Resolver,
+} from 'type-graphql';
 import bcrypt from 'bcryptjs';
 
 import { User } from '../entity/User';
@@ -19,23 +26,42 @@ export class AuthResolver {
 		@Arg('input') input: ResolverTypes.LoginInput,
 		@Ctx() { req }: MyContext
 	): Promise<User> {
-		const user = await User.findOne(
-			{ email: input.email },
-			{ select: ['id', 'password'] }
-		);
-		if (!user) throw new Error('Email is incorrect');
+		const user = await User.findOne({ email: input.email });
+
+		if (!user) {
+			throw new ArgumentValidationError([
+				{
+					target: {
+						email: input.email,
+					},
+					value: input.email,
+					property: 'email',
+					constraints: {
+						isEmailCorrect: 'email, or password is incorrect',
+					},
+				},
+			]);
+		}
 
 		const isMatch = await bcrypt.compare(input.password, user.password);
-		if (!isMatch) throw new Error('Password is incorrect');
 
-		(req.session as any).user = {
-			...user,
-			email: input.email,
-		};
-		return {
-			...user,
-			email: input.email,
-		} as User;
+		if (!isMatch) {
+			throw new ArgumentValidationError([
+				{
+					target: {
+						email: input.email,
+					},
+					value: input.email,
+					property: 'email',
+					constraints: {
+						isEmailCorrect: 'email, or password is incorrect',
+					},
+				},
+			]);
+		}
+
+		(req.session as any).user = user;
+		return user;
 	}
 
 	@Query(() => User, { nullable: true })

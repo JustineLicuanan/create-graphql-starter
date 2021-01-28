@@ -1,5 +1,5 @@
 {
-	"name": "cg-starter",
+	"name": "tsa-graphql-simple",
 	"version": "0.1.0",
 	"license": "MIT",
 	"engines": {
@@ -26,8 +26,7 @@
 		"uuid": "^8.3.2"
 	},
 	"scripts": {
-		"up": "npx -p npm-check-updates ncu -u",
-		"up:add": "yarn up && yarn",
+		"up": "npx npm-check-updates -u",
 		"dev": "nodemon src/index.ts",
 		"dev:build": "yarn rm:dist && tsc -w",
 		"dev:start": "nodemon dist/index",

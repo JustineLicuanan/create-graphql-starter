@@ -2,17 +2,17 @@ import { IsEmail, IsNotEmpty, MinLength } from 'class-validator';
 import { Field, InputType } from 'type-graphql';
 
 import { IsEmailNotExist } from '../lib/IsEmailNotExist';
-import { IsNotBlank } from '../lib/IsNotBlank';
 
 @InputType()
 export class RegisterInput {
 	@Field()
+	@IsNotEmpty()
 	@IsEmail()
 	@IsEmailNotExist()
 	email: string;
 
 	@Field()
-	@IsNotBlank()
+	@IsNotEmpty()
 	@MinLength(8)
 	password: string;
 }
@@ -20,6 +20,7 @@ export class RegisterInput {
 @InputType()
 export class LoginInput {
 	@Field()
+	@IsNotEmpty()
 	@IsEmail()
 	email: string;
 
