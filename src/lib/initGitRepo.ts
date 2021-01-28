@@ -1,6 +1,8 @@
 import { green } from 'chalk';
 import { execSync } from 'child_process';
 
+const pkg = require('../../package.json');
+
 const isGitInstalled = () => {
 	try {
 		execSync('git --version', { stdio: 'ignore' });
@@ -15,7 +17,7 @@ const initGitRepo = () => {
 		console.log(`${green('Initializing Git repository...')}\n`);
 
 		execSync(
-			'git init && git add . && git commit -m "Initialize project with create-tsa"',
+			`git init && git add . && git commit -m "Initialize project with ${pkg.name}"`,
 			{ stdio: 'ignore' }
 		);
 	}
